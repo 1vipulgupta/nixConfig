@@ -112,6 +112,7 @@
     lazygit
     tmate
     slack
+vscode
   ];
 
   programs.starship.enable = true;
