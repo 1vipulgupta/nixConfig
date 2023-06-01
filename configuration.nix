@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, nixpkgs, ... }:
 
 {
   imports =
@@ -96,8 +96,8 @@
   nix = {
       package = pkgs.nixFlakes;
       #bottom two throwing error
-      #nixPath = ["nixpkgs=${flake.inputs.nixpkgs}"]; #enable use of `nix-shell -p ...` etc
-      #registry.nixpkgs.flake = flake.inputs.nixpkgs; #Make `nix-shell` etc use pinned nixpkgs
+      #nixPath = ["nixpkgs=nixpkgs"]; #enable use of `nix-shell -p ...` etc
+      #registry.nixpkgs.flake = nixpkgs; #Make `nix-shell` etc use pinned nixpkgs
       extraOptions = lib.optionalString (config.nix.package == pkgs.nixFlakes)
 			"experimental-features = nix-command flakes";
   };
