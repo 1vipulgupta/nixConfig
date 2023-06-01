@@ -78,12 +78,14 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
+  users.defaultUserShell = pkgs.zsh;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.vipul = {
     isNormalUser = true;
     description = "Vipul Gupta";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
     packages = with pkgs; [
       firefox
       #  thunderbird
@@ -112,11 +114,22 @@
     lazygit
     tmate
     slack
-vscode
+    vscode
   ];
 
   programs.starship.enable = true;
-
+  programs.zsh.enable = true;
+  programs.zsh.ohMyZsh = {
+    enable = true;
+    theme = "robbyrussell";
+    plugins = [
+      "sudo"
+      "git"
+      "terraform"
+      "systemadmin"
+      "vi-mode"
+    ];
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
