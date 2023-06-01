@@ -97,8 +97,8 @@
   nix = {
     package = pkgs.nixFlakes;
     #bottom two throwing error
-    #nixPath = ["nixpkgs=nixpkgs"]; #enable use of `nix-shell -p ...` etc
-    #registry.nixpkgs.flake = nixpkgs; #Make `nix-shell` etc use pinned nixpkgs
+    nixPath = [ "nixpkgs=nixpkgs" ]; #enable use of `nix-shell -p ...` etc
+    registry.nixpkgs.flake = nixpkgs; #Make `nix-shell` etc use pinned nixpkgs
     extraOptions = lib.optionalString (config.nix.package == pkgs.nixFlakes)
       "experimental-features = nix-command flakes";
   };
@@ -111,8 +111,7 @@
     git
     lazygit
     tmate
-
-
+    slack
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
