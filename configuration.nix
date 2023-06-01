@@ -6,7 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
@@ -85,7 +86,7 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -94,19 +95,19 @@
 
 
   nix = {
-      package = pkgs.nixFlakes;
-      #bottom two throwing error
-      #nixPath = ["nixpkgs=nixpkgs"]; #enable use of `nix-shell -p ...` etc
-      #registry.nixpkgs.flake = nixpkgs; #Make `nix-shell` etc use pinned nixpkgs
-      extraOptions = lib.optionalString (config.nix.package == pkgs.nixFlakes)
-			"experimental-features = nix-command flakes";
+    package = pkgs.nixFlakes;
+    #bottom two throwing error
+    #nixPath = ["nixpkgs=nixpkgs"]; #enable use of `nix-shell -p ...` etc
+    #registry.nixpkgs.flake = nixpkgs; #Make `nix-shell` etc use pinned nixpkgs
+    extraOptions = lib.optionalString (config.nix.package == pkgs.nixFlakes)
+      "experimental-features = nix-command flakes";
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     wget
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -135,6 +136,6 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
-	
+
   boot.kernelPackages = pkgs.linuxPackages_latest;
 }
