@@ -118,6 +118,21 @@
     slack
     vscode
     direnv # A shell extension that manages your environment based on directory
+    nix-direnv
+    vscode-extensions.mkhl.direnv # vscode extension for direnv
+  ];
+  #https://github.com/nix-community/nix-direnv#via-configurationnix-in-nixos
+  nix.settings = {
+    keep-outputs = true;
+    keep-derivations = true;
+  };
+
+  environment.pathsToLink = [
+    "/share/nix-direnv"
+  ];
+
+  nixpkgs.overlays = [
+    (self: super: { nix-direnv = super.nix-direnv.override { enableFlakes = true; }; } )
   ];
 
   programs.starship.enable = true;
