@@ -101,7 +101,7 @@
       enable = true;
       autocd = true;
       dotDir = ".config/zsh";
-      enableAutosuggestions = true;
+      enableAutosuggestions = false;
       enableCompletion = true;
       shellAliases = {
         l = "ls -la";

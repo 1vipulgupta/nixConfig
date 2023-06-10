@@ -118,6 +118,7 @@
     vscode
     direnv # A shell extension that manages your environment based on directory
     nix-direnv
+    # globalprotect-openconnect
     vscode-extensions.mkhl.direnv # vscode extension for direnv
   ];
   #https://github.com/nix-community/nix-direnv#via-configurationnix-in-nixos
