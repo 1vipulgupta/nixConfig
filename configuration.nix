@@ -120,6 +120,7 @@
     postman
     direnv # A shell extension that manages your environment based on directory
     nix-direnv
+    brave
     # globalprotect-openconnect
     vscode-extensions.mkhl.direnv # vscode extension for direnv
   ];
