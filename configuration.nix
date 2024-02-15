@@ -117,7 +117,7 @@
     tmate
     slack
     vscode
-    postman
+    # postman
     direnv # A shell extension that manages your environment based on directory
     nix-direnv
     brave
@@ -134,9 +134,9 @@
     "/share/nix-direnv"
   ];
 
-  nixpkgs.overlays = [
-    (self: super: { nix-direnv = super.nix-direnv.override { enableFlakes = true; }; } )
-  ];
+  # nixpkgs.overlays = [
+  #   (self: super: { nix-direnv = super.nix-direnv.override { enableFlakes = true; }; } )
+  # ];
 
   programs.starship.enable = true;
   programs.zsh.enable = true;
@@ -191,7 +191,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 }
